@@ -53,3 +53,7 @@ App-specific naming (React components, DB entities, etc.) lives in each app's `C
 - **Branching**: none — commit directly to `main`. (Solo demo project.)
 - **Commits**: Conventional Commits, no scope. Format: `<type>: <description>` — e.g. `feat: add column drag`, `fix: stale ws reconnect`, `chore: bump vite`. Types in use: `feat`, `fix`, `chore`, `refactor`, `docs`, `test`, `build`, `ci`.
 - Commit messages are lowercase after the type and have no trailing period.
+
+## Scratch Space
+
+- **`tmp/`** — gitignored. Scratch space for Claude's temporary files and the user's own drafts. Safe to read/write freely.
