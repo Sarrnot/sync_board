@@ -35,7 +35,8 @@ Server is authoritative. Mutations arrive via REST, are persisted, then echoed o
 
 ```
 src/
-  ...              # Express app + WebSocket handlers
+  app.ts           # createApp() — Express app factory (no listen; testable)
+  index.ts         # entry: createApp() + listen
 ```
 
 (Structure is still light — expand this section as the server grows.)
