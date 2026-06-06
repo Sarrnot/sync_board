@@ -16,7 +16,7 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@sync_board/eslint-config": "workspace:*",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -28,7 +28,6 @@
     "eslint-plugin-react-x": "^5.7.5",
     "globals": "^17.5.0",
     "typescript": "~6.0.2",
-    "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10",
     "vitest": "^4.1.8"
   }
