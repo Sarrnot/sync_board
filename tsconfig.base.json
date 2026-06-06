@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    /* Transpilation safety — every file must stand alone, no type-directed emit */
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+
+    /* Linting — strict across the monorepo */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false
+  }
+}
