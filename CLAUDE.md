@@ -13,6 +13,22 @@ pnpm workspaces (no Turborepo/Nx). Two apps:
 
 Run scripts from a package root, or from the repo root with `pnpm --filter <pkg> <script>`. App-specific commands live in each app's `CLAUDE.md`.
 
+## Commands
+
+Run from the repo root.
+
+```bash
+pnpm -r lint                 # ESLint, all apps
+pnpm -r typecheck            # Typecheck, all apps
+pnpm -r test                 # Tests, all apps
+pnpm run verify              # lint + typecheck + test, all apps
+pnpm run format              # Prettier --write (pass paths)
+pnpm run format:all          # Prettier --write the whole repo
+pnpm run format:check        # Prettier --check the whole repo
+```
+
+Single app: `pnpm --filter web <script>` or `pnpm --filter server <script>` (e.g. `pnpm --filter web lint`). Available per-app scripts: `lint`, `typecheck`, `test`.
+
 ## API & Sync Model (cross-app contract)
 
 REST for CRUD at `/api` (boards/cards/...). WebSocket channel at `/ws` carries sync events (created/updated/deleted/moved) fanned out to other clients. The server is authoritative — clients reconcile against its echoes.
