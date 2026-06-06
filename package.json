@@ -1,17 +1,17 @@
 {
-  "name": "sync_board",
-  "private": true,
-  "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "verify": "pnpm -r lint && pnpm -r typecheck && pnpm -r test"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  },
-  "devDependencies": {
-    "prettier": "^3.8.3"
-  }
+    "name": "sync_board",
+    "private": true,
+    "scripts": {
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "verify": "pnpm -r lint && pnpm -r typecheck && pnpm -r test"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild"
+        ]
+    },
+    "devDependencies": {
+        "prettier": "^3.8.3"
+    }
 }

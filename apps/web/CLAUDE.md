@@ -39,7 +39,7 @@ src/
       components/  # feature-local components
       hooks/       # feature-local hooks
       store/       # feature-local state
-      lib/         # feature-local utilities 
+      lib/         # feature-local utilities
       index.ts     # public interface (only re-exports what other code may use)
   components/      # general / design-system components shared across features
   api/             # TanStack Query hooks + fetchers
