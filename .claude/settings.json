@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --filter server lint)",
+      "Bash(pnpm --filter server test)",
+      "Bash(pnpm --filter server typecheck)",
+      "Bash(pnpm --filter web lint)",
+      "Bash(pnpm --filter web test)",
+      "Bash(pnpm --filter web typecheck)",
+      "Bash(pnpm -r lint)",
+      "Bash(pnpm -r typecheck)",
+      "Bash(pnpm -r test)",
+      "Bash(pnpm run format)",
+      "Bash(pnpm run format:check)",
+      "Bash(pnpm run verify)"
+    ]
+  }
+}
