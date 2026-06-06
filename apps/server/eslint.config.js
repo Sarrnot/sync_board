@@ -1,6 +1,7 @@
 import js from '@eslint/js'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import prettier from 'eslint-config-prettier/flat'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
@@ -11,6 +12,7 @@ export default defineConfig([
       js.configs.recommended,
       tseslint.configs.strictTypeChecked,
       tseslint.configs.stylisticTypeChecked,
+      prettier,
     ],
     languageOptions: {
       globals: globals.node,
