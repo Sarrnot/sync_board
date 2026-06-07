@@ -1,0 +1,8 @@
+#!/bin/sh
+# Pre-commit gate: verify code correctness and formatting.
+# Cheap enough for now, replace with a CI check later.
+# Does NOT modify files. Fix reported issues yourself, then re-stage and commit.
+set -e
+
+pnpm run verify
+pnpm run format:check
