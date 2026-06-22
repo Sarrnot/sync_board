@@ -58,6 +58,8 @@ App-specific naming (React components, DB entities, etc.) lives in each app's `C
 ### Tests
 
 - Co-locate tests with source. `Card.tsx` and `Card.test.tsx` live in the same folder.
+- When implementing or changing functionality, always consider adding tests for it.
+- **Testable architecture**: favor structure that is easy to test — keep components presentational, push logic into hooks/pure functions, and isolate side effects behind a single boundary (e.g. data access) so it can be mocked. Prefer pure functions with explicit inputs/outputs over hidden state; inject dependencies rather than reaching for globals.
 
 ### Module boundaries
 
