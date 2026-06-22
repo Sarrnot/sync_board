@@ -44,6 +44,11 @@ export const baseConfig = ({
                         message: "No default exports, named exports only.",
                     },
                 ],
+                // Prefer `type` aliases instead of `interface`.
+                "@typescript-eslint/consistent-type-definitions": [
+                    "error",
+                    "type",
+                ],
             },
         },
         ...overrides,
