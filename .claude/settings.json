@@ -14,5 +14,28 @@
             "Bash(pnpm run format:check)",
             "Bash(pnpm run verify)"
         ]
+    },
+    "hooks": {
+        "PostToolUse": [
+            {
+                "matcher": "Edit|Write|MultiEdit",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/check-edited-file.sh\""
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/check-all.sh\""
+                    }
+                ]
+            }
+        ]
     }
 }
