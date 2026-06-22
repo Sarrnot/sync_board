@@ -40,6 +40,11 @@ REST for CRUD at `/api` (boards/cards/...). WebSocket channel at `/ws` carries s
 
 ## Conventions (apply to both apps)
 
+### Simplicity
+
+- **YAGNI / KISS**: build only what the current requirement needs — no speculative abstractions or config for hypothetical futures. When two approaches work, take the one with fewer moving parts.
+- **Comments**: short. Explain the "why" (architecture/intent), not what the code already shows.
+
 ### Naming
 
 - **Modules / utilities / hooks**: `camelCase.ts` (`useBoardSocket.ts`, `formatDueDate.ts`).
@@ -68,7 +73,7 @@ App-specific naming (React components, DB entities, etc.) lives in each app's `C
 
 ### CLAUDE.md
 
-- **Keep CLAUDE.md files in sync**: when a change makes any of these docs stale (this file, `app/server/CLAUDE.md`, `apps/web/CLAUDE.md`, etc.), update the affected file in the same change.
+- **Keep CLAUDE.md files in sync**: when a change makes any of these docs stale (this file, `apps/server/CLAUDE.md`, `apps/web/CLAUDE.md`, etc.), update the affected file in the same change.
 - **CLAUDE.md style**: keep them lean — capture architecture, where to find details, and key gotchas worth knowing before searching. Don't list every file/function/field; that detail belongs in the code and only adds churn. Push deep detail into a nested CLAUDE.md and link to it.
 
 ## Repo Etiquette
