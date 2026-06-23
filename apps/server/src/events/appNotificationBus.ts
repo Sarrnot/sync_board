@@ -10,14 +10,14 @@ type EntityRef = { id: string };
  * the WebSocket layer subscribes and fans out. Keys are the wire event names.
  */
 export type AppEventMap = {
-    "column.created": EntityRef;
-    "column.updated": EntityRef;
-    "column.deleted": EntityRef;
-    "column.moved": EntityRef;
-    "card.created": EntityRef;
-    "card.updated": EntityRef;
-    "card.deleted": EntityRef;
-    "card.moved": EntityRef;
+    "list.created": EntityRef;
+    "list.updated": EntityRef;
+    "list.deleted": EntityRef;
+    "list.moved": EntityRef;
+    "task.created": EntityRef;
+    "task.updated": EntityRef;
+    "task.deleted": EntityRef;
+    "task.moved": EntityRef;
 };
 
 /** The application notification bus, typed to the domain {@link AppEventMap}. */
