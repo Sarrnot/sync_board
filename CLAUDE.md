@@ -79,9 +79,8 @@ App-specific naming (React components, DB entities, etc.) lives in each app's `C
 
 ## Repo Etiquette
 
-- **Branching**: none — commit directly to `main`. (Solo demo project.)
-- **Commits**: Conventional Commits, no scope. Format: `<type>: <description>` — e.g. `feat: add column drag`, `fix: stale ws reconnect`, `chore: bump vite`. Types in use: `feat`, `fix`, `chore`, `refactor`, `docs`, `test`, `build`, `ci`.
-- Commit messages are lowercase after the type and have no trailing period.
+- **Commits**: Conventional Commits. Scope the package name when a change affects a single package (`web`, `server`, `eslint-config`); omit the scope for repo-wide or cross-package changes. Format: `<type>(<scope>): <description>` or `<type>: <description>` — e.g. `feat(web): add column drag`, `fix(server): stale ws reconnect`, `chore: bump vite`. Types in use: `feat`, `fix`, `chore`, `refactor`, `docs`, `test`, `build`, `ci`.
+- Commit messages are lowercase after the type and have no trailing period, but preserve the real casing of identifiers (filenames, symbols, env vars) — e.g. `docs: update CLAUDE.md`.
 
 ## Scratch Space
 
