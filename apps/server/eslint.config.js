@@ -10,4 +10,13 @@ export default baseConfig({
             tsconfigRootDir: import.meta.dirname,
         },
     },
+    overrides: [
+        {
+            // drizzle-kit's defineConfig requires a default export.
+            files: ["drizzle.config.ts"],
+            rules: {
+                "no-restricted-syntax": "off",
+            },
+        },
+    ],
 });
