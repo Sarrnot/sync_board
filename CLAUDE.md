@@ -6,10 +6,11 @@
 
 ## Monorepo
 
-pnpm workspaces (no Turborepo/Nx). Two apps:
+pnpm workspaces (no Turborepo/Nx). Apps in `apps/*`, shared packages in `packages/*`:
 
 - **`apps/web`** — Vite + React frontend. See [apps/web/CLAUDE.md](apps/web/CLAUDE.md).
 - **`apps/server`** — Node + Express backend with WebSocket sync. Database. See [apps/server/CLAUDE.md](apps/server/CLAUDE.md).
+- **`packages/eslint-config`** — shared ESLint base extended by each app's `eslint.config.js`.
 
 Run scripts from a package root, or from the repo root with `pnpm --filter <pkg> <script>`. App-specific commands live in each app's `CLAUDE.md`.
 
