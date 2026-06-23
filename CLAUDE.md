@@ -14,6 +14,8 @@ pnpm workspaces (no Turborepo/Nx). Apps in `apps/*`, shared packages in `package
 
 Run scripts from a package root, or from the repo root with `pnpm --filter <pkg> <script>`. App-specific commands live in each app's `CLAUDE.md`.
 
+Each package owns its own `.env` — copy its `.env.example` to `.env`.
+
 ## Commands
 
 Run from the repo root.
@@ -36,8 +38,8 @@ REST for CRUD at `/api` (boards/cards/...). WebSocket channel at `/ws` carries s
 
 ## Database
 
-- PostgreSQL
-- Drizzle ORM (schema + migrations live in `apps/server`)
+- PostgreSQL (dev container in `compose.yaml`; `docker compose up -d db`)
+- Drizzle ORM (schema + migrations live in `apps/server` — see [apps/server/CLAUDE.md](apps/server/CLAUDE.md))
 
 ## Conventions (apply to both apps)
 

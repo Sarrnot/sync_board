@@ -13,11 +13,27 @@ Node + Express backend for `sync_board`, with a WebSocket sync channel. See [rep
 ## Commands
 
 ```bash
-pnpm dev          # Express + ws with reload
-pnpm build        # tsc -b (typecheck is part of build)
+pnpm dev          # Express + ws with reload (loads .env via --env-file)
+pnpm build        # tsc -p tsconfig.build.json — emit dist/
 pnpm lint         # ESLint
-pnpm exec tsc -b --noEmit   # Typecheck only (no emit)
+pnpm typecheck    # tsc --noEmit
+
+pnpm db:generate  # drizzle-kit: emit a versioned migration from schema changes
+pnpm db:migrate   # drizzle-kit: apply pending migrations to the DB
 ```
+
+## Build & Env
+
+- **tsconfigs**: `tsconfig.json` type-checks the whole project; `tsconfig.build.json` narrows to `src` to emit `dist/`.
+- **Env**: loaded via `--env-file=.env` (no dotenv). Copy `.env.example` to `.env`.
+
+## Migrations
+
+Schema is the source of truth; migrations are generated, never hand-written.
+
+1. Edit a `src/db/schema/*.ts` file.
+2. `pnpm db:generate` — writes a versioned SQL migration into `migrations/`.
+3. Review the SQL, then `pnpm db:migrate` to apply it.
 
 ## Naming
 
@@ -37,7 +53,10 @@ Server is authoritative. Mutations arrive via REST, are persisted, then echoed o
 src/
   app.ts           # createApp() — Express app factory (no listen; testable)
   index.ts         # entry: createApp() + listen
+  config/env.ts    # Zod-validated, typed process env
+  db/              # Drizzle client + schema — see db/CLAUDE.md
   events/          # in-process typed notification bus; services emit, ws subscribes — see events/CLAUDE.md
+migrations/        # generated SQL migrations (drizzle-kit out dir)
 ```
 
 (Structure is still light — expand this section as the server grows.)
