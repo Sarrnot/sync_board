@@ -6,4 +6,4 @@ import * as schema from "./schema/index.js";
 // Single shared connection + Drizzle instance for the process.
 const queryClient = postgres(env.DATABASE_URL);
 
-export const db = drizzle(queryClient, { schema });
+export const db = drizzle(queryClient, { schema, casing: "snake_case" });
