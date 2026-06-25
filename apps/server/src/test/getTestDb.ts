@@ -5,7 +5,7 @@ import { PgTable } from "drizzle-orm/pg-core";
 import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import * as schema from "../db/schema/index.js";
-import type { Db } from "../services/lib/runInTransaction.js";
+import type { Db } from "../db/index.js";
 
 const migrationsFolder = fileURLToPath(
     new URL("../../migrations", import.meta.url),
