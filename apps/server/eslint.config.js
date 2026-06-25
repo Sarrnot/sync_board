@@ -12,8 +12,8 @@ export default baseConfig({
     },
     overrides: [
         {
-            // drizzle-kit's defineConfig requires a default export.
-            files: ["drizzle.config.ts"],
+            // drizzle-kit / vitest require a default export.
+            files: ["drizzle.config.ts", "vitest.config.ts"],
             rules: {
                 "no-restricted-syntax": "off",
             },
