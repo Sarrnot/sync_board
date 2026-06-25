@@ -10,7 +10,10 @@ export const tasks = pgTable("tasks", {
     // Fractional index (lexicographic order)
     position: text().notNull(),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp({ withTimezone: true })
+        .notNull()
+        .defaultNow()
+        .$onUpdate(() => new Date()),
 });
 
 export type Task = typeof tasks.$inferSelect;

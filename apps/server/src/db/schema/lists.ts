@@ -10,7 +10,10 @@ export const lists = pgTable("lists", {
     /** Fractional index (lexicographic order) */
     position: text().notNull(),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp({ withTimezone: true })
+        .notNull()
+        .defaultNow()
+        .$onUpdate(() => new Date()),
 });
 
 export type List = typeof lists.$inferSelect;
