@@ -47,6 +47,10 @@ See the root [CLAUDE.md](../../CLAUDE.md) for cross-cutting naming rules (module
 
 Server is authoritative. Mutations arrive via REST, are persisted, then echoed over WebSocket to all connected clients so they can reconcile their local caches.
 
+## Services
+
+One service per entity, the only writer of the DB. They speak Drizzle types, return affected rows, and own sync-event emission. Cascade deletes run top-down through injected child services. See [services/CLAUDE.md](src/services/CLAUDE.md).
+
 ## Folder structure
 
 ```
@@ -55,7 +59,9 @@ src/
   index.ts         # entry: createApp() + listen
   config/env.ts    # Zod-validated, typed process env
   db/              # Drizzle client + schema — see db/CLAUDE.md
+  errors/          # transport-agnostic domain errors; boundaries map to e.g. HTTP status
   events/          # in-process typed notification bus; services emit, ws subscribes — see events/CLAUDE.md
+  services/        # per-entity service layer over the DB — see services/CLAUDE.md
 migrations/        # generated SQL migrations (drizzle-kit out dir)
 ```
 
