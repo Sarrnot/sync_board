@@ -1,5 +1,7 @@
+import { relations } from "drizzle-orm";
 import { pgTable, uuid, text, timestamp } from "drizzle-orm/pg-core";
 import { boards } from "./boards.js";
+import { tasks } from "./tasks.js";
 
 export const lists = pgTable("lists", {
     id: uuid().primaryKey().defaultRandom(),
@@ -15,6 +17,14 @@ export const lists = pgTable("lists", {
         .defaultNow()
         .$onUpdate(() => new Date()),
 });
+
+export const listsRelations = relations(lists, ({ one, many }) => ({
+    board: one(boards, {
+        fields: [lists.boardId],
+        references: [boards.id],
+    }),
+    tasks: many(tasks),
+}));
 
 export type List = typeof lists.$inferSelect;
 export type NewList = typeof lists.$inferInsert;

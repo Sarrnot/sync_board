@@ -9,10 +9,10 @@ db/
   client.ts        # postgres.js connection + Drizzle singleton (`db`)
   index.ts         # public surface: re-exports `db` and the schema/types
   schema/          # one file per entity (multi-file module)
-    boards.ts      # boards + Board/NewBoard types
-    lists.ts       # lists (FK -> boards) + List/NewList
-    tasks.ts       # tasks (FK -> lists) + Task/NewTask
-    index.ts       # re-exports every table + row/insert type
+    boards.ts      # boards + boardsRelations + Board/NewBoard types
+    lists.ts       # lists (FK -> boards) + listsRelations + List/NewList
+    tasks.ts       # tasks (FK -> lists) + tasksRelations + Task/NewTask
+    index.ts       # re-exports every table + relations + row/insert type
 ```
 
 ## Conventions
@@ -25,3 +25,5 @@ db/
   errors. Deletes are handled top-down in the service (load children, emit
   `*.deleted` events, delete) so the sync layer sees every removed row — a silent
   DB cascade would skip those events.
+- **Relations co-locate** with their table (`boardsRelations` in `boards.ts`),
+  powering Drizzle's relational query API (`db.query...with`).
