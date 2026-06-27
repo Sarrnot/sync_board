@@ -16,6 +16,8 @@
         "db:studio": "drizzle-kit studio"
     },
     "dependencies": {
+        "@ts-rest/core": "3.53.0-rc.1",
+        "@ts-rest/express": "3.53.0-rc.1",
         "drizzle-orm": "^0.45.2",
         "express": "^5.2.1",
         "postgres": "^3.4.9",
