@@ -153,6 +153,38 @@ describe("boardService", () => {
         });
     });
 
+    describe("getWithChildren", () => {
+        it("returns board with all lists and their tasks", async () => {
+            const { board } = await seedBoardTree(ctx);
+
+            const tree = await ctx.boardService.getWithChildren(board.id);
+
+            expect(tree?.id).toBe(board.id);
+            expect(tree?.lists.map((l) => l.title).sort()).toEqual([
+                "L1",
+                "L2",
+            ]);
+            const l1 = tree?.lists.find((l) => l.title === "L1");
+            expect(l1?.tasks.map((t) => t.title).sort()).toEqual(["T1", "T2"]);
+            const l2 = tree?.lists.find((l) => l.title === "L2");
+            expect(l2?.tasks.map((t) => t.title).sort()).toEqual(["T3"]);
+        });
+
+        it("returns a board with an empty list array when it has no lists", async () => {
+            const board = await ctx.boardService.create({ title: "B" });
+
+            const tree = await ctx.boardService.getWithChildren(board.id);
+
+            expect(tree).toMatchObject({ id: board.id, lists: [] });
+        });
+
+        it("returns undefined for a missing board", async () => {
+            expect(
+                await ctx.boardService.getWithChildren(MISSING_ID),
+            ).toBeUndefined();
+        });
+    });
+
     describe("listAll", () => {
         it("returns every board", async () => {
             const b1 = await ctx.boardService.create({ title: "B1" });

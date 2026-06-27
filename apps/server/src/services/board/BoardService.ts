@@ -77,6 +77,14 @@ export class BoardService {
         });
     }
 
+    /** Board with its lists and their tasks. */
+    getWithChildren(id: string, tx?: TransactionContext) {
+        return reader(this.db, tx).query.boards.findFirst({
+            where: eq(boards.id, id),
+            with: { lists: { with: { tasks: true } } },
+        });
+    }
+
     listAll(tx?: TransactionContext): Promise<Board[]> {
         return reader(this.db, tx).query.boards.findMany();
     }
