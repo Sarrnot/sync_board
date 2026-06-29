@@ -34,7 +34,7 @@ Single app: `pnpm --filter web <script>` or `pnpm --filter server <script>` (e.g
 
 ## API & Sync Model (cross-app contract)
 
-REST for CRUD at `/api` (boards/cards/...). WebSocket channel at `/ws` carries sync events (created/updated/deleted/moved) fanned out to other clients. The server is authoritative — clients reconcile against its echoes.
+REST for CRUD at `/api` (boards/cards/...), defined as a shared ts-rest contract the server exports as `server/contract` and the client imports. WebSocket channel at `/ws` carries sync events (created/updated/deleted/moved) fanned out to other clients. The server is authoritative — clients reconcile against its echoes.
 
 ## Database
 
