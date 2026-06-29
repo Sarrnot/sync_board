@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
 import request from "supertest";
-import { createApp } from "./app.js";
+import { createTestApp } from "./test/createTestApp.js";
 
 describe("GET /api/health", () => {
     it("responds with ok status", async () => {
-        const app = createApp();
+        const { app } = await createTestApp();
 
         const res = await request(app).get("/api/health");
 
